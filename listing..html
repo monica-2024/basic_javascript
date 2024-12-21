@@ -1,0 +1,83 @@
+<!-- 11/19/2024 -->
+
+<html>
+  <head>
+    <style>
+      body {
+        background-color: white;
+        color: black;
+      }
+
+      #element-1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      .listing {
+        display: flex;
+        width: 80vw;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        height: 30px;
+        background-color: blue;
+        color: yellow;
+        margin: 20px 50px;
+        padding: 9px;
+        cursor: pointer;
+      }
+
+      .listing:hover {
+        background-color: yellow;
+        color: green;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="element-1">
+      <div id="listing-one" class="listing-one listing">listing one</div>
+      <div id="listing-two" class="listing-two listing">listing two</div>
+    </div>
+    <script type="text/javascript">
+      const listingOne = document.getElementById("listing-one");
+      const listingTwo = document.getElementById("listing-two");
+      function clicklistingOne() {
+        console.log("clicked listing one!");
+
+        listingOne.innerText = "listing one!";
+        listingTwo.innerText = "listing two";
+      }
+
+      function changeBackgroundColor() {
+        listingOne.style.backgroundColor = "black";
+      }
+
+      function clicklistingTwo() {
+        console.log("clicked listing two!");
+        listingTwo.innerText = "listing two!";
+        listingOne.innerText = "listing one";
+      }
+      function clickListing(listing) {
+        // if 'listing one' then what u did for clickLIstingOne
+        // else do what u did for listing two
+        if (listing === "listing one") {
+          listingOne.innerText = "listing이다";
+        } else {
+          listingTwo.innerText = "listing two이다";
+        }
+      }
+
+      listingOne.addEventListener("click", clicklistingOne);
+      listingOne.addEventListener("click", clicklistingTwo);
+      // call back function 으로 한다 click,()
+      // listingTwo.addEventListener('click',() => clickListing('listing two'))
+      // listingOne.addEventListener('click',() => clickListing('listing one'))
+
+      listingOne.addEventListener("click", changeBackgroundColor);
+    </script>
+  </body>
+</html>

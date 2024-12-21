@@ -1,0 +1,240 @@
+<!-- 11/14/2024 (target Id or class) </ is closed tab>-->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title of the page -->
+    <title>Unique IDs & Classes with Basic CSS</title>
+
+    <!-- Internal CSS (can be placed in an external file as well) -->
+    <style>
+        /* Basic CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Specific IDs */
+        #home {
+            background-color: #e7f7e7;
+        }
+
+        #about {
+            background-color: #e3f7ff;
+        }
+
+        #contact {
+            background-color: #fff1e7;
+        }
+
+        /* Classes */
+        .section-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .section-description {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .highlight {
+            color: #ff6347;
+            font-weight: bold;
+        }
+
+        /* Image specific styling */
+        #image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header section -->
+    <header id="header">
+        <h1 id="main-title">Welcome to My Website</h1>
+        <p id="intro-text">This is a basic HTML template with unique IDs, classes, and basic CSS styling.</p>
+    </header>
+
+    <!-- Navigation section -->
+    <nav id="navigation">
+        <ul>
+            <li><a href="#home" id="home-link" class="nav-link">Home</a></li>
+            <li><a href="#about" id="about-link" class="nav-link">About</a></li>
+            <li><a href="#contact" id="contact-link" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main content section -->
+    <main id="main-content">
+        <section id="home" class="content-section">
+            <h2 id="home-title" class="section-title">Home Section</h2>
+            <p id="home-description" class="section-description">This is the home section of the webpage. It's styled
+                with unique IDs and basic CSS.</p>
+        </section>
+
+        <section id="about" class="content-section">
+            <h2 id="about-title" class="section-title">About Section</h2>
+            <p id="about-description" class="section-description">This section is about the website or the creator. It's
+                styled differently from other sections.</p>
+        </section>
+
+        <section id="contact" class="content-section">
+            <h2 id="contact-title" class="section-title">Contact Section</h2>
+            <p id="contact-description" class="section-description">You can email me at <a
+                    href="mailto:example@example.com" id="contact-email" class="highlight">example@example.com</a>.</p>
+        </section>
+
+        <!-- Image section -->
+        <section id="image-section" class="content-section">
+            <h2 id="image-title" class="section-title">Image Section</h2>
+            <img id="example-image" class="highlight" src="https://via.placeholder.com/600x300" alt="Placeholder Image">
+        </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer id="footer">
+        <p id="footer-text">&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
+    <script>
+        // getting the element by id
+        //   const home = document.getElementById('home-link');
+        //   //  get the text insdie the element
+        //     const text = home.innerText;
+        //     expect(text).toEqual('Home') 이건 그냥 쓴거다
+
+        //   console.log('what is the text?', text);
+        // const imageSection = document.getElementById ('image-title');
+        // console.log(imageSection);
+        // const text = imageSection.innerText;
+        // console.log('this is image', text);
+        // const contactEmail = document.getElementById ('contact-email');
+        // console.log(contactEmail);
+
+        // 11/16/2024
+        // const contact = document.getElementById('contact-title');
+        //  contact.innerText = 'info section'
+
+        // const email = document.getElementById('contact-email');
+        // console.log("before innertext change", email.innerText)
+        // email.innerText = 'info@info.com'
+        // console.log("afterr innerText change", email.innerText)
+
+        // const sections = document.querySelectorAll('.content-section')
+        //         console.log('the sections', sections);
+
+
+        // for home section -> My home
+        // About section -> About Me
+        // contact section _> My Contact Info 
+        // Image Section  -> My Picture
+
+        // const sections = document.querySelectorAll('.section-title');
+        // for (let i = 0; i < sections.length; i++) {
+        //     const text = sections[i].innerText;
+        //     if (text === 'Home Section') {
+        //         sections[i].innerText = 'My Home';
+        //     } else if (text === 'About Section') {
+        //         sections[i].innerText = 'About Me';
+        //     } else if (text === 'Contact Section') {
+        //         sections[i].innerText = 'My Contact Info';
+        //     } else {
+        //         sections[i].innerText = "My Picture";
+        //     }
+
+        // }
+
+        // update nav buttons at the top of the page
+        // Home -> Me
+        // About -> About Me
+        // Contact -> Contact Me
+
+        // const nav = document.querySelectorAll('.nav-link');
+        // for (let i = 0; i < nav.length; i++) {
+        //     const text = nav[i].innerText;
+        //     if (text === 'Home') {
+        //         nav[i].innerText = 'Me';
+        //     } else if (text === 'About') {
+        //         nav[i].innerText = 'About Me';
+           
+        //     } else {
+        //         nav[i].innerText = "Contact Me";
+        //     }
+
+        // }
+
+// change image using src section (id 먼저 찾고 나서 src 코드를 치고 사진을 불러와서 right click 해서 copy 하면 된다 )
+
+const picImage = document.getElementById ('example-image')
+    console.log(picImage)
+
+    picImage.src = "https://th.bing.com/th?id=OIP.abv1uBlwiC4DtkWE30tW7QHaE7&w=306&h=203&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2"
+
+    </script>
+</body>
+
+</html>
