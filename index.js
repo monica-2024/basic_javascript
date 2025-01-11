@@ -226,7 +226,7 @@
 // console.log(numb7 % 2 === 1);
 // console.log(numb8 % 2 === 1);
 
-// 연습하기 10/26
+// 연습하기 10/26/24
 // if (numb3 % 2 === 1) {
 //   console.log("this is odd number");
 // } else {
@@ -626,7 +626,7 @@
 //         },
 //         {
 //             id: 2,
-//             name: "Marco",
+//             name: "Marco",   
 //         },
 //         ],
 //   };
@@ -772,21 +772,20 @@
 // If divisible by 5, print "Buzz" instead of the number.
 // If divisible by both 3 and 5, print "FizzBuzz".
 
-// function fizzBuzz() {
-//   for(let i = 1; i <= 100; i++){
-//     if( i % 3 === 0 && i % 5 === 0){
-//       console.log(i, 'FizzBuzz')
-//     }else if( i % 3 === 0){
-//       console.log(i, 'Fizz')
-//     }else if( i % 5 === 0 ){
-//       console.log(i, 'Buzz')
-//     }else{
-//       console.log(i)
-//     }
-//   }
-// }
-// fizzBuzz()
-
+function fizzBuzz() {
+  for(let i = 1; i <= 100; i++){
+    if( i % 3 === 0 && i % 5 === 0){
+      console.log(i, 'FizzBuzz')
+    }else if( i % 3 === 0){
+      console.log(i, 'Fizz')
+    }else if( i % 5 === 0 ){
+      console.log(i, 'Buzz')
+    }else{
+      console.log(i)
+    }
+  }
+}
+fizzBuzz(5);
 //순서 바꿔도 상관없는데 위에것이 맞다
 //  function fizzBuzz() {
 //   for (let i = 1; i <= 100; i++) {
@@ -1049,7 +1048,7 @@ console.log(isAnagram("jar", "jam"));
 function longest(string) {
   let longest = "";
 
-  for (i = 0; i < string.length; i++) {
+  for (let i = 0; i < string.length; i++) {
     if (string[i].length > longest.length) {
       longest = string[i];
     }
@@ -1124,15 +1123,47 @@ function moveZero(arr) {
 }
 
 console.log(moveZero([0, 1, 0, 3, 12]));
+//12.21/2024
+//create a function that takes an array of numbers and returns a string that contains the number of odd
+//numbers in a format like this: "You have me 4 odd numbers"
+//Note: The return string should take into consideration the plural or singular version of 'numbers'
+//Example: oddNumbers([1,3,4,6])
+//Returns: 'You gave me 2 odd numbers'
+//Example: [1,0,4,6] returns: 'You gave me 1 odd number'
+//Example: [4,6,8,10] returns: 'You gave me 0 odd numbers'
+function oddNumbers(arr) {
+  // let num = [];
+  // let odd = 0;
+  let num = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 1) {
+      // odd++
+      num++
+    }
+  }
+  if (num === 1) {
+    // if (odd === 1){
+    // return "You gave me " + odd + " odd number";
+    return "You gave me " + num + " odd number"
+  }
+  // return "You gave me " + odd + " odd numbers"
+  return "You gave me " + num + " odd numbers";
+}
+console.log(oddNumbers([1, 3, 4, 6]));
+console.log(oddNumbers([1, 0, 4, 6]));
+console.log(oddNumbers([4, 0, 4, 6]));
 
-// function something() {
-//     for (let i = 0; i < arr.length; i++ ) {
-
-//     }
-
-//     for () {
-
-//     }
-//     for
-
-// }
+const oddNum = (arr) => {
+  let num = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 1) {
+      num++
+    }
+  }
+  if (num === 1) {
+    return `You gave me ${num} odd number`; //물결 사인 밑에것 `~ backticks
+  } else {
+    return `You gave me ${num} odd numbers`;
+  }
+};
+console.log(oddNum([1, 3, 4, 5]));

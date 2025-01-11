@@ -931,18 +931,18 @@
 // output : 3
 // getAlphabeticIndex("a")
 // output : 1
-// function getAlphabeticIndex(letter) {
-//   const alphabet = ["a", "b", "c", "d", "e"];
-//   for (i = 0; i < alphabet.length; i++) {
-//     if (alphabet[i] === letter) {
-//       return i + 1;
-//     }
-//   }
-//   return -1;
-// }
-// console.log(getAlphabeticIndex("a"));
-// console.log(getAlphabeticIndex("dfd"));
-// console.log(getAlphabeticIndex("d"));
+function getAlphabeticIndex(letter) {
+  const alphabet = ["a", "b", "c", "d", "e"];
+  for (i = 0; i < alphabet.length; i++) {
+    if (alphabet[i] === letter) {
+      return i + 1;
+    }
+  }
+  return -1;
+}
+console.log(getAlphabeticIndex("a")); //output 1
+console.log(getAlphabeticIndex("dfd")); //output -1
+console.log(getAlphabeticIndex("d")); //output 4
 
 // const removeDuplicates = (numArry) => {
 //   const newArr = [numArry[0]];
@@ -1000,7 +1000,7 @@
 //   }
 //   return numbers;
 // };
-// console.log(findDivisible([10, 15, 20, 25, 30], 3));
+// console.log(findDivisible([10, 15, 20, 25, 30], 3)); //output 15, 30
 
 // const findDivisible = (num, div) => {
 //   return num.map((ele) => {
@@ -1014,19 +1014,19 @@
 // };
 // console.log(findDivisible([10, 15, 20, 25, 30], 3));
 
-function countEvenOdd(arr) {
-  let even = 0;
-  let odd = 0;
-  arr.map((ele) => {
-    if (ele % 2 === 0) {
-      even++;
-    } else {
-      odd++;
-    }
-  });
-  return { even, odd };
-}
-console.log(countEvenOdd([1, 3, 4, 6, 5, 7, 9, 11]));
+// function countEvenOdd(arr) {
+//   let even = 0;
+//   let odd = 0;
+//   arr.map((ele) => {
+//     if (ele % 2 === 0) {
+//       even++;
+//     } else {
+//       odd++;
+//     }
+//   });
+//   return { even, odd };
+// }
+// console.log(countEvenOdd([1, 3, 4, 6, 5, 7, 9, 11]));
 
 // function countEvenOdd(arr) {
 //   let count = { even: 0, odd: 0 };
@@ -1040,3 +1040,913 @@ console.log(countEvenOdd([1, 3, 4, 6, 5, 7, 9, 11]));
 //   return count;
 // }
 // console.log(countEvenOdd([1, 3, 4, 6, 5, 7, 9, 11]));
+
+//12/22/2024 to 12/24/2024
+// 1. Write a function add(a, b) that returns the sum of two numbers.
+function add(a, b) {
+  return a + b;
+}
+console.log(add(2, 3)); //5
+
+//2. Write a function celsiusToFahrenheit(celsius) to convert a temperature from Celsius to Fahrenheit.
+function celsiusToFahrenheit(celsius) {
+  return (celsius * 9) / 5 + 32;
+}
+console.log(celsiusToFahrenheit(0)); //32
+
+// 3. Write a function maxOfTwo(a, b) that returns the larger of two numbers.
+function maxOfTwo(a, b) {
+  // if (a > b) {
+  //   return a;
+  // } else {
+  //   return b;
+  return a > b ? a : b;
+}
+console.log(maxOfTwo(10, 20)); //output 20
+
+// 4. Write a function isEven(num) that returns true if a number is even, otherwise false.
+function isEven(num) {
+  if (num % 2 === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+console.log(isEven(4)); //output true
+console.log(isEven(7)); //output false
+
+// 5. Write a function reverseString(str) that takes a string and returns it reversed.
+function reverseString(str) {
+  return str.split("").reverse().join("");
+}
+console.log(reverseString("hello")); //output 'olleh'
+//split('') ['h', 'e', 'l', 'l', 'o'] ('')single character (' ')string by space
+//reverse() ['o', 'l', 'l', 'e', 'h']
+//joint("") 'olleh
+//(i=4) word = "" + o = o
+//(i=3) word = o + l = ol
+//(i=2) word = ol + l = oll
+//(i=1) word = oll + e = olle
+//(i=0) word = olle + h = olleh
+
+function reverseString(str2) {
+  let word = "";
+  for (let i = str2.length - 1; i >= 0; i--) {
+    word = word + str2[i];
+  }
+  return word;
+}
+console.log(reverseString("helloo"));
+
+// 6. Write a function countVowels(str) that counts the number of vowels in a string.
+function countVowels(str) {
+  const vowels = "aeiouAEIOU";
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (vowels.includes(str[i])) {
+      count++;
+    }
+  }
+  return count;
+}
+console.log(countVowels("hello world")); // Output: 3)
+//i = 0; str[0] = h,count 0
+//i = 1; str[1] = e, count1 ++
+//i = 2; str[2] = l, count 1
+//i = 3; str[3] = l, count 1
+
+// 7. Write a function findLargest(arr) that returns the largest number in an array.
+function findLargest(arr) {
+  let largest = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > largest) {
+      largest = arr[i];
+    }
+  }
+  return largest;
+}
+console.log(findLargest([1, 2, 3, 4, 5])); //output 5
+
+// 8. Write a function sumArray(arr) that returns the sum of all numbers in an array.
+function sumArray(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+  return sum;
+}
+console.log(sumArray([1, 2, 3, 4])); // Output: 10 since starting sum = 0 starting
+//arr[0] = 1, sum = sum + arr[0], sum = 0 + 1 -> sum = 1
+//arr[1] = 2, sum = sum + arr[1], sum = 1 + 2 -> sum = 3
+//arr[2] = 3, sum = sum + arr[2], sum = 3 + 3 -> sum = 6
+//arr[3] = 4, sum = sum + arr[3], sum = 6 + 4 -> sum = 10
+
+//9. Write a function fizzBuzz(n) that prints numbers from 1 to n.
+function fizzBuzz(n) {
+  for (let i = 1; i <= n; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("fizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log("fizz");
+    } else if (i % 5 === 0) {
+      console.log("Buzz");
+    } else {
+      console.log(i);
+    }
+  }
+}
+fizzBuzz(5); //this will now work no need to wrap in console.log
+// Output: 1, 2, "Fizz", 4, "Buzz"  ( 1 to n meaning inclusive) (i, 'fizz') 3 Fizz로 된다
+
+//10. Write a function findIndex(arr, value) that returns the index of a given value in an array if not exists, then return "not exist"
+function findIndex(arr, value) {
+  for (i = 0; i < arr.length; i++) {
+    if (arr[i] === value) {
+      return i;
+    }
+  }
+  return -1; //unsuccessful search or failure
+}
+console.log(findIndex([10, 20, 30], 20)); //output 1
+//arr[0]; 10 === 20 false
+//arr[1]; 20 === 20 true
+//arr[2]; 30 === 20 false
+
+// 11. Write a function mergeArrays(arr1, arr2) that merges two arrays into one.
+function mergeArrays(arr1, arr2) {
+  //   return arr1.concat(arr2);
+  // }
+  for (let i = 0; i < arr2.length; i++) {
+    //arr2 이다
+    arr1.push(arr2[i]); // Push each element from arr2 into arr1
+  }
+  return arr1; // Return the modified/merged arr1
+}
+console.log(mergeArrays([1, 2], [3, 4])); // Output: [1, 2, 3, 4]
+//arr1 = [1,2]
+//arr2 = [3,4]
+//loop arr2: first iteration (i=0), arr2[0]=3, arr1.push(3)->arr1 becomes [1,2,3]
+//loop arr2: second iteration (i=1), arr[1]=4, arr1.push(4)->arr1 becomes [1,2,3,4]
+
+// 12. Write a function containsSubstring(str, substring) that checks if one string contains another.
+function containsSubstring(str, substring) {
+  return str.includes(substring);
+}
+console.log(containsSubstring("hello world", "world")); // Output: true
+console.log(containsSubstring("hello world", "Wor")); // Output: false case sensitive
+console.log(containsSubstring("hello world", "marco")); //Output: false
+
+//13. Write a function capitalizeWords(str) that capitalizes the first letter of each word in a string.물어보기
+function capitalizeWords(str) {
+  // Split the string into words
+  return str
+    .split(" ") // Split the string by spaces
+    .map((word) => {
+      //map is used to transform individual elements into an array
+      // Capitalize the first letter and combine it with the rest of the word
+      return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    })
+    .join(" "); // Join the array back into a string with spaces into single string
+}
+console.log(capitalizeWords("hello world")); // Output: "Hello World"
+//split 'hello world' -> ['hello', 'world']
+//map() gets first character(0) of the word and converts into uppercase
+//slice(1) restof the word (starting from index1) and converts into lowercase
+//'hello' becomes "Hello" and 'world' becomes 'World'
+//join: "Hello World"
+
+//14. Write a function removeDuplicates(arr) that removes duplicates from an array.
+function removeDuplicates(arr) {
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!result.includes(arr[i])) {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+}
+console.log(removeDuplicates([1, 2, 2, 3])); // Output: [1, 2, 3]
+
+//15. Write a function secondLargest(arr) that finds the second-largest number in an array.
+function secondLargest(arr) {
+  let first = 0;
+  let second = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > first) {
+      //Found a new largest number
+      second = first; // Update second to the old first
+      first = arr[i]; // Update first to the new largest element
+    } else if (arr[i] > second && arr[i] < first) {
+      second = arr[i]; // Update second if the current element is between first and second
+    }
+  }
+  return second;
+}
+console.log(secondLargest([10, 20, 30])); // Output: 20
+//initial value: first = 0, second = 0,
+//iteration 1 (arr[0]=10): arr[0] > frist -> first = 10, second = 0
+//iteration 2 (arr[1]=20): arr[1] > first -> second = 10, first = 20
+//iteration 3 (arr[2]=30): arr[2] > first -> second = 20, first = 30
+//final output second = 20
+
+//16. Write a function square(num) that returns the square of a number.
+function square(num) {
+  // return num * num;
+  return num ** 2;
+}
+console.log(square(4)); // Output: 16
+
+//17. Write a function sumDigits(num) that returns the sum of the digits of a number.도무지 모르겠음
+const sumDigits = (num) => {
+  let sum = 0;
+  const splitNum = num.split("");
+  for (let i = 0; i < splitNum.length; i++) {
+    //Number(string or digit) constructor, class or parseInt(string or digit)
+    const int = Number(splitNum[i]);
+    sum = sum + int;
+  }
+  return sum;
+};
+function sumDigits2(num) {
+  let sum = 0;
+  for (let digit of num.toString()) {
+    //convert number toString() each character is digit
+    sum += parseInt(digit); //converts each character back to an integer and add to sum
+  }
+  return sum;
+}
+console.log(sumDigits("123")); // Output: 6
+console.log(sumDigits2("246")); //output: 12
+//convert 123 to string '123'
+//first iteration digit = '2', parseInt('2') = 2, sum becomes 2
+//second iteration digit = '4', parseInt('4') = 4, sum becomes 2+4 = 6
+//third iteration digit = '6', pareInt('6') = 6, sum becomes 6+6 = 12
+//final sum 12
+
+// 18. Write a function isMultipleOf(a, b) that checks if a is a multiple of b.
+function isMultipleOf(a, b) {
+  return a % b === 0; // % is modular
+}
+console.log(isMultipleOf(15, 5)); // Output: true
+//returns true because 15/5 leaves no remainder
+
+//19. Write a function countWords(str) that counts the number of words in a string.
+function countWords(str) {
+  const words = str.split(" "); // space between ' and '
+  //const words = str.trim().split(/\s+/).filter(Boolean);
+  return words.length;
+}
+console.log(countWords("hello world again")); // Output: 3
+
+//20. Write a function average(arr) that calculates the average of numbers in an array.
+function average(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+  return sum / arr.length;
+}
+console.log(average([10, 20, 30])); // Output: 20
+
+//21. Write a function reverseArray(arr) that reverses the elements in an array.
+function reverseArray(arr) {
+  let reverse = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+    reverse.push(arr[i]);
+    // reverse = reverse + arr[i]; (this output gives a string 321 not [3,2,1])
+  }
+  return reverse;
+}
+console.log(reverseArray([1, 2, 3])); // Output: [3, 2, 1]
+
+//22. Write a function longestWord(str) that returns the longest word in a sentence.
+function longestWord(str) {
+  let longest = "";
+  let words = str.split(" ");
+  for (let i = 0; i < words.length; i++) {
+    // for (let word of words) {}
+    if (words[i].length > longest.length) {
+      longest = words[i];
+    }
+  }
+  return longest;
+}
+console.log(longestWord("The quick brown fox")); // Output: "quick" WHY NOT BROWN? only
+//returns the first longest word as it typical in many implementations not all words
+
+//23. Write a function repeatString(str, n) that repeats a string n times.
+function repeatString(str, n) {
+  let repeat = "";
+  for (let i = 0; i < n; i++) {
+    repeat = repeat + str;
+  }
+  return repeat;
+}
+console.log(repeatString("abc", 3)); // Output: "abcabcabc"
+
+//24. Write a function removeFalsyValues(arr) that removes all falsy values (e.g., false, 0, null, undefined, NaN, "") from an array.
+// function removeFalsyValues(arr) {
+//   let falsy = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i]) { //숫자그리고 true 외에는 다른 컨디션이 안들어간다
+//       falsy.push(arr[i]);
+//     }
+//   }
+//   return falsy;
+// }
+// console.log(removeFalsyValues([1, 0, "", null, 2, false])); // Output: [1, 2])
+function removeFalsyValues2(arr) {
+  return arr.filter(Boolean);
+}
+console.log(removeFalsyValues2([3, 2, null, 0, true, undefined, 4])); //[3,2,true,4]
+//25. Write a function chunkArray(arr, size) that splits an array into chunks of the specified size. 알아먹기 힘듦
+function chunkArray(arr, size) {
+  const result = [];
+  for (let i = 0; i < arr.length; i += size) {
+    //i++가 아니라 i +=size 가 들어간다
+    result.push(arr.slice(i, i + size)); //slice from i to i+size (subarray)
+  }
+  return result;
+}
+console.log(chunkArray([1, 2, 3, 4, 5], 2)); // Output: [[1, 2], [3, 4], [5]])
+
+//26. Write a function convertToRoman(num) that converts a number into Roman numerals.
+// function convertToRoman(num) {
+//   const romanNumerals = {
+//     M: 1000,
+//     CM: 90,
+//     D: 500,
+//     CD: 400,
+//     C: 100,
+//     XC: 90,
+//     L: 50,
+//     XL: 40,
+//     X: 10,
+//     IX: 9,
+//     V: 5,
+//     IV: 4,
+//     I: 1
+//   };
+//   let result = '';
+//   for (const key in romanNumerals) {
+//     while (num >= romanNumerals[key]) {
+//       result += key;
+//       num -= romanNumerals[key];
+//     }
+//   }
+//   return result;
+// }
+// console.log(convertToRoman(4)); //output IV
+function convertToRoman(num) {
+  const romanNumerals = [
+    { value: 1000, numeral: "M" },
+    { value: 500, numeral: "CM" },
+    { value: 400, numeral: "D" },
+    { value: 100, numeral: "C" },
+    { value: 90, numeral: "XC" },
+    { value: 50, numeral: "L" },
+    { value: 40, numeral: "XL" },
+    { value: 10, numeral: "X" },
+    { value: 9, numeral: "IX" },
+    { value: 5, numeral: "V" },
+    { value: 4, numeral: "IV" },
+    { value: 1, numeral: "I" },
+  ];
+  if (num === 0) return "";
+  for (let i = 0; i < romanNumerals.length; i++) {
+    if (num >= romanNumerals[i].value) {
+      return (
+        romanNumerals[i].numeral + convertToRoman(num - romanNumerals[i].value)
+      );
+    }
+  }
+}
+console.log(convertToRoman(4));
+//27. Write a function sumRange(start, end) that calculates the sum of numbers in a range from start to end.
+function sumRange(start, end) {
+  let sum = 0;
+  for (let i = start; i <= end; i++) {
+    sum = sum + i;
+  }
+  return sum;
+}
+console.log(sumRange(1, 5)); // Output: 15
+//28. Write a function lastElement(arr) that returns the last element of an array.
+function lastElement(arr) {
+  let last = [];
+  for (let i = 0; i < arr.length; i++) {
+    last = arr[i];
+  }
+  return last;
+}
+console.log(lastElement([1, 2, 3])); // Output: 3 loops until the last number and stops
+
+// //29. Write a function minOfThree(a, b, c) that returns the smallest of three numbers.
+// function minOfThree(a, b, c) {
+//   return Math.min(a, b, c);
+// }
+// console.log(minOfThree(5, 10, 3)); // Output: 3
+function minOfThree(a, b, c) {
+  if (a <= b && a <= c) {
+    return a;
+  } else if (b <= a && b <= c) {
+    return b;
+  } else {
+    return c;
+  }
+}
+console.log(minOfThree(5, 10, 3)); // Output: 3
+
+//30. Write a function multiplyArray(arr, factor) that multiplies each element in an array by a given factor.
+function multiplyArray(arr, factor) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    result.push(arr[i] * factor);
+  }
+  return result;
+}
+console.log(multiplyArray([1, 2, 3], 2)); // Output: [2, 4, 6]
+function multiplyArray(arr, factor) {
+  // using map function
+  return arr.map((element) => element * factor);
+}
+console.log(multiplyArray([1, 2, 3], 2));
+
+//12/25/2024
+// function printChristmasTree(height) {
+//   for (let i = 1; i <= height; i++) {
+//     const spaces = ' '.repeat(height - i);
+//     const stars = '*'.repeat(i * 2 - 1);
+//     console.log(spaces + stars);
+//   }
+// }
+// printChristmasTree(10);
+
+//31. Find all pairs in an array that sum to a target value.
+// Write a function findPairs(arr, target) that finds all pairs of numbers in the array that add up to a given target.
+function findPairs(arr, target) {
+  let pairs = [];
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      // j = i + 1 j < arr.length avoids duplicate pairs
+      if (arr[i] + arr[j] === target) {
+        //예전에 true false 찾는것과 비슷하다
+        pairs.push([arr[i], arr[j]]); // target 맞으면 두개로 나눈다
+      }
+    }
+  }
+  return pairs;
+}
+console.log(findPairs([1, 2, 3, 4, 5], 6)); // Output: [[1, 5], [2, 4]]
+
+//32. Find common elements in two arrays.
+// Write a function findCommonElements(arr1, arr2) that finds common elements between two arrays.
+function findCommonElements(arr1, arr2) {
+  const result = [];
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      //두개를 비교하기
+      if (arr1[i] === arr2[j]) {
+        result.push(arr1[i]); // pushing to a new array "commonElemts"
+        break; // avoids duplicate elements
+      }
+    }
+  }
+  return result;
+}
+console.log(findCommonElements([1, 2, 3], [2, 3, 4])); // Output: [2, 3]
+//33. Count the frequency of elements in an array.
+// Write a function countFrequency(arr) that uses a hash map to count how many times each element appears in an array.
+function countFrequency(arr) {
+  const frequencyMap = {};
+  for (const element of arr) {
+    if (frequencyMap.hasOwnProperty(element)) {
+      //constructor hasOwnProperty
+      frequencyMap[element]++; //if element already in frequency object, increment its ++
+    } else {
+      // frequencyMap[element] = 1; //otherwise, initialize its count to 1
+    }
+  }
+  return frequencyMap;
+}
+console.log(countFrequency(["a", "b", "a", "c", "b"])); // Output: {a: 2, b: 2, c: 1}
+
+function countFrequency2(arr) {
+  //frquencyMap의 공식이다.
+  let frequency = {};
+  for (let i = 0; i < arr.length; i++) {
+    let element = arr[i];
+    if (frequency[element]) {
+      frequency[element]++;
+    } else {
+      frequency[element] = 1;
+    }
+  }
+  return frequency;
+}
+console.log(countFrequency2(["a", "b", "a", "c", "b"])); // Output: {a: 2, b: 2, c: 1}
+// 34. Check for anagram strings.
+// Write a function isAnagram(str1, str2) that uses a hash map to check if two strings are anagrams.
+const isAnagram = (str1, str2) => {
+  if (str1.split("").sort().join("") === str2.split("").sort().join("")) {
+    return true;
+  }
+  return false;
+};
+console.log(isAnagram("listen", "silent")); // Output: true
+console.log(isAnagram("hello", "world")); // Output: false
+//35. Find the first non-repeating character in a string.
+// Write a function firstNonRepeatingChar(str) that finds the first character that does not repeat in the string using a hash map.
+const firstNonRepeatingChar = (word) => {
+  const array = word.split("");
+  // console.log(array);
+  let obj = {};
+  // console.log(obj);
+  for (let i = 0; i < array.length; i++) {
+    if (!obj[array[i]]) {
+      obj[array[i]] = 1;
+    } else {
+      obj[array[i]]++;
+    }
+  }
+  const letters = Object.keys(obj); //key, value, (S:3) as pairs
+  for (const letter of letters) {
+    if (obj[letter] === 1) {
+      return letter;
+    }
+  }
+};
+// console.log(firstNonRepeatingChar("swiss")); // Output: "w"
+// console.log(firstNonRepeatingChar("aabbcc")); // Output: null, undefined
+// console.log(firstNonRepeatingChar("hello")); // Output: "h"
+
+function firstNonRepeatingChar2(str) {
+  let frequencyMap = {};
+  for (let i = 0; i < str.length; i++) {
+    //공식.
+    let char = str[i];
+    if (frequencyMap[char]) {
+      frequencyMap[char]++;
+    } else {
+      frequencyMap[char] = 1;
+    }
+  }
+  for (let i = 0; i < str.length; i++) {
+    //loop thru string again to find non-repeat char
+    if (frequencyMap[str[i]] === 1) {
+      return str[i]; //return the first character that appears only once
+    }
+  }
+  return null; //if no non-repeating character is found, return null
+}
+console.log(firstNonRepeatingChar2("swiss")); // Output: "w"
+console.log(firstNonRepeatingChar2("aabbcc")); // Output: null, undefined
+console.log(firstNonRepeatingChar2("hello")); // Output: "h"
+
+//36.  Flatten a Nested Array (Two Loops):
+// Write a function flattenArray(arr) to flatten a nested array using two loops.
+function flattenArray(arr) {
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      //설명이 필요함 if an array, iterate over its element
+      for (let j = 0; j < arr[i].length; j++) {
+        result.push(arr[i][j]);
+      }
+    } else {
+      result.push(arr[i]); //array 가 아니면 , 그냥 직접적으로 element 만 push 한다다
+    }
+  }
+  return result;
+}
+console.log(
+  flattenArray([
+    [1, 2],
+    [3, 4],
+  ])
+); // Output: [1, 2, 3, 4]
+
+//37. Group Strings by Length:
+// Write a function groupByLength(arr) to group strings by their length.
+function groupByLength(arr) {
+  const grouped = {};
+  for (let i = 0; i < arr.length; i++) {
+    const str = arr[i];
+    const length = str.length;
+    if (!grouped[length]) {
+      grouped[length] = []; // 없을 경우우
+    }
+    grouped[length].push(str); //숫자나오는 순대 차례로 넣으면 된다다
+  }
+  return grouped;
+}
+console.log(groupByLength(["a", "abc", "de", "fgh"])); // Output: {1: ["a"], 2: ["de"], 3: ["abc", "fgh"]}
+
+// 38. Count Characters in Words:
+// Write a function countChars(arr) to count how many times each character appears in an array of strings.
+function countChars(arr) {
+  const charCount = {};
+  for (let i = 0; i < arr.length; i++) {
+    const str = arr[i];
+    for (let j = 0; j < str.length; j++) {
+      const char = str[j]; //iterate thru each character in the current string
+      if (charCount[char]) {
+        charCount[char] = charCount[char] + 1; //있으면 세는 것을 시작한다
+      } else {
+        charCount[char] = 1; //아니면 1로 간주된다
+      }
+    }
+  }
+  return charCount;
+}
+console.log(countChars(["apple", "banana"])); // Output: {a: 4, p: 2, l: 1, e: 1, b: 1, n: 2}
+
+// 39. Group Numbers by Remainder:
+// Write a function groupByRemainder(arr, divisor) to group numbers by their remainder when divided by a number.
+function groupByRemainder(arr, divisor) {
+  const grouped = {};
+  for (let i = 0; i < arr.length; i++) {
+    const num = arr[i];
+    const remainder = num % divisor;
+    if (!grouped[remainder]) {
+      grouped[remainder] = []; //나눠지지 않을경우
+    }
+    grouped[remainder].push(num); //숫자에 나눠지면 push 한다
+  }
+  return grouped;
+}
+console.log(groupByRemainder([1, 2, 3, 4, 5], 2)); // Output: {0: [2, 4], 1: [1, 3, 5]}
+//2로 나누어서 0 이 남으면 0으로 모으고 1이 남으면 1로 모은다
+
+//40. Two Sum Using Hash Map:
+// Write a function twoSum(arr, target) that finds two numbers in an array that add up to a target using a hash map.
+const twoSum = (arr, target) => {
+  const hash = {}; // object 모아둔다.
+  for (const a of arr) {
+    // for of loop
+    const remainder = target - a; //assign remainder
+    if (hash[remainder]) {
+      return [remainder, a];
+    }
+    hash[a] = a;
+  }
+};
+console.log(twoSum([2, 7, 11, 15], 9)); // Output: [2, 7]
+//9-2=7, 7 이 remainnder 이다 is not in the has map yet, we store 2 hash = {2,2}
+//9-7=2, 2 가 remainder 이지만 2 is already in the hash map, 2가 미리 저정했기에 7을 더하면 9가 된다 여기서 멈춘다
+console.log(twoSum([3, 2, 4], 6)); // output 6
+// 6 - 3 = 3, 3을 저장
+// 6 - 2 = 4, 2 저장
+// 6 - 4 = 2, 2가 미리 저장했기에 여기서 멈춘다
+//왜 한글은 끝에 글이 두번 나오는 걸까? 이상하네
+
+// class question
+let result = 0;
+for (let i = 0; i <= 5; i++) {
+  result += i;
+}
+console.log(result); //output 15 i from 0 to 5 01(0+0) 1(0+1) 2(1+2) 3(3+3) 4(6+4) 5(10+5
+
+//12/30/2024
+//1. Write a function isMultipleOf(a,b)
+function isMultipleOf1(a, b) {
+  return a % b === 0;
+}
+console.log(isMultipleOf1(15, 5)); //output true
+
+//2. Write a function average1(arr)
+function average1(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+  return sum / arr.length;
+}
+console.log(average1([10, 20, 30])); //output 20
+
+//3. Write a function reverseArray2(arr)
+function reverseArray2(arr) {
+  let reverse = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+    reverse.push(arr[i]);
+  }
+  return reverse;
+}
+console.log(reverseArray2([1, 2, 3]));
+
+//4. function areAllPositive(arr)
+function areAllPositive(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] <= 0) {
+      // non positive first check i <=0 is treated as negative
+      return false; // returns immediately
+    }
+  }
+  return true;
+}
+console.log(areAllPositive([1, 2, 3, 4])); //output true
+console.log(areAllPositive([1, -2, 3, 4])); //output false
+
+//5. Write function countNumbers(arr) returns an object with the keys: even, odd, zero
+function countNumbers(arr) {
+  let even = 0;
+  let oddCount = 0;
+  let zeroCount = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+      //not just falsy don't use arr[i] = 0
+      zeroCount++;
+    } else if (arr[i] % 2 === 0) {
+      even++;
+    } else {
+      oddCount++;
+    }
+  }
+  return {
+    even: even,
+    oddCount: oddCount,
+    zeroCount: zeroCount,
+  };
+}
+console.log(countNumbers([0, 2, 2, 3, 4, 5, 0, 6, 7, 8]));
+//output { even: 5, oddCount: 3, zeroCount: 2 }
+
+//6. Write a function countPosNegZero(arr) that returns an object with the keys: positive,
+//negative, and zero
+function countPosNegZero(arr) {
+  let posCount = 0;
+  let negCount = 0;
+  let zeroCount = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      posCount++;
+    } else if (arr[i] < 0) {
+      negCount++;
+    } else {
+      zeroCount++;
+    }
+  }
+  return {
+    posCount: posCount,
+    negCount: negCount,
+    zeroCount: zeroCount,
+  };
+}
+console.log(countPosNegZero([0, -1, 2, -3, 4, 0, -5]));
+//{ posCount: 2, negCount: 3, zeroCount: 2 }
+
+//7. Write a function findMinAndMax(arr) that returns an object with the keys: min and max
+function findMinAndMax(arr) {
+  let min = arr[0]; //array 1st value starting
+  let max = arr[0];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i]; //update min if a smaller value found
+    }
+    if (arr[i] > max) {
+      max = arr[i]; //update max if a larger value is found
+    }
+  }
+  return { min, max };
+}
+console.log(findMinAndMax([3, 1, 4, 5, 9])); //output { min: 1, max: 9 }
+
+//8. Write a function groupByParity(arr) objects with keys
+function groupByParity(arr) {
+  const result = { even: [], odd: [] };
+  for (const num of arr) {
+    //for of loop since we're using objects with keys not value
+    if (num % 2 === 0) {
+      result.even.push(num);
+    } else {
+      result.odd.push(num);
+    }
+  }
+  return result;
+}
+console.log(groupByParity([1, 2, 3, 4, 5, 6]));
+//output { even: [ 2, 4, 6 ], odd: [ 1, 3, 5 ] }
+
+//9. Write a function findMostFrequent that returns the element that appears most frequently in an array. Need to use frequncyMap
+function findMostFrequent(arr) {
+  let frequencyMap = {}; //to store the frequency of each element
+  for (let i = 0; i < arr.length; i++) {
+    let element = arr[i];
+    if (frequencyMap[element]) {
+      //같은 숫자가 있으면 계속 센다 increment
+      frequencyMap[element]++;
+    } else {
+      frequencyMap[element] = 1; //같은 숫자가 없으면 1로 지정한다.
+    }
+  }
+  //Find the element with the highest frequency
+  let mostFrequentElement = 0; //null, nothing, it's a string, undefined=not defined yet
+  // null = false, undefined = false, 0 = false, "" = false
+  let maxFrequency = 0;
+  for (let element in frequencyMap) {
+    //이게 공식이다 to find the highest frequency
+    if (frequencyMap[element] > maxFrequency) {
+      mostFrequentElement = element;
+      maxFrequency = frequencyMap[element];
+    }
+  }
+  return mostFrequentElement;
+}
+console.log(findMostFrequent([1, 2, 2, 3, 3, 3, 4])); //output 3
+
+// function findMostFrequent (arr) {
+//   let mostFrequentElement = null; //start with no element being the most frequent 끝에모음
+//   let maxFrequency = 1; //start with a count of 1 for the first element
+//   let currentFrequncy = 1; //initialize the current frequency as 1
+
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] === arr[i - 1]) { //loop thru the array to count consecutive identical ele
+//       currentFrequncy++;
+//     } else {
+//       currentFrequncy = 1;
+//     }
+//     if (currentFrequncy > maxFrequency) { //update if current is higher than max
+//       mostFrequentElement = arr[i];
+//       maxFrequency = currentFrequncy;
+//     }
+//   }
+//   return mostFrequentElement;
+// }
+// console.log(findMostFrequent([1, 2, 2, 3, 3, 3, 4])); //output 3
+
+//10. Write a function findDuplicates that returns an array of elements that appear more than oonce.
+function findDuplicates(arr) {
+  let frequencyMap = {}; //object to store the frequency of each element
+  let duplicates = []; //array to store duplicate elements
+  for (let i = 0; i < arr.length; i++) {
+    let element = arr[i];
+    if (frequencyMap[element]) {
+      frequencyMap[element]++;
+    } else {
+      frequencyMap[element] = 1;
+    }
+  }
+  for (let element in frequencyMap) {
+    if (frequencyMap[element] > 1) {
+      duplicates.push(element); //add to the duplicates array if the arr is greater than1
+    }
+  }
+  return duplicates;
+}
+console.log(findDuplicates([1, 2, 2, 3, 3, 3, 4])); //output[2,3]
+
+//1/11/2025
+
+function getLowHigh(arr, target) {
+  const low = []; //[]arrary -> list
+  const high = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < target) {
+      low.push(arr[i]);
+    } else {
+      high.push(arr[i]);
+    }
+  }
+  return { low, high };
+}
+console.log(getLowHigh([1, 2, 3, 4, 5, 6], 4)); //output { low: [ 1, 2, 3 ], high: [ 4, 5, 6 ] }
+
+function sayMyName(schoolId) {
+  const members = [
+    { schoolId: 1, firstName: "Marco", lastName: "Seo", class: "QA" },
+    { schoolId: 2, firstName: "Phil", lastName: "Lee", class: "QA" },
+    {
+      schoolId: 3,
+      firstName: "Joshua",
+      lastName: "Lee",
+      class: "kids-coding",
+    },
+    { schoolId: 4, firstName: "Tae", lastName: "Cho", class: "QA" },
+    { schoolId: 5, firstName: "In-chan", lastName: "Choi", class: "QA" },
+  ];
+
+  for (let i = 0; i < members.length; i++) {
+    if (members[i].schoolId === schoolId) {
+      const firstName = members[i].firstName;
+      const lastName = members[i].lastName;
+      return (
+        "You are my favorite teacher, " + firstName + " " + lastName + "!!"
+      );
+    }
+  }
+}
+console.log(sayMyName(1)); //output "You are Marco Seo"
+
+//Given an integer array nums, return an array output where output[i] is the product of all the elements of nums except nums[i].
+// Example 1:
+// Input: nums = [1,2,4,6]
+// Output: [48,24,12,8]
+// Example 2:
+// Input: nums = [-1,0,1,2,3]
+// Output: [0,-6,0,0,0]
+function number(arr) {
+  numInt1 = [];
+  numInt2 = [];
+
+  for (let i = 0; i < arr.length; i++) {}
+}
