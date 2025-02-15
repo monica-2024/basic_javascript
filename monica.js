@@ -1912,7 +1912,7 @@ function getLowHigh(arr, target) {
 console.log(getLowHigh([1, 2, 3, 4, 5, 6], 4)); //output { low: [ 1, 2, 3 ], high: [ 4, 5, 6 ] }
 
 function sayMyName(schoolId) {
-  const members = [
+  const students = [
     { schoolId: 1, firstName: "Marco", lastName: "Seo", class: "QA" },
     { schoolId: 2, firstName: "Phil", lastName: "Lee", class: "QA" },
     {
@@ -1925,10 +1925,10 @@ function sayMyName(schoolId) {
     { schoolId: 5, firstName: "In-chan", lastName: "Choi", class: "QA" },
   ];
 
-  for (let i = 0; i < members.length; i++) {
-    if (members[i].schoolId === schoolId) {
-      const firstName = members[i].firstName;
-      const lastName = members[i].lastName;
+  for (let i = 0; i < students.length; i++) {
+    if (students[i].schoolId === schoolId) {
+      const firstName = students[i].firstName;
+      const lastName = students[i].lastName;
       return (
         "You are my favorite teacher, " + firstName + " " + lastName + "!!"
       );
@@ -1944,9 +1944,445 @@ console.log(sayMyName(1)); //output "You are Marco Seo"
 // Example 2:
 // Input: nums = [-1,0,1,2,3]
 // Output: [0,-6,0,0,0]
-function number(arr) {
-  numInt1 = [];
-  numInt2 = [];
+function productNums(arr) {
+  // let n = arr.length;
+  let result = new Array(arr.length); //배열 초기화.
 
-  for (let i = 0; i < arr.length; i++) {}
+  for (let i = 0; i < arr.length; i++) {
+    result[i] = 1;
+
+    for (let j = 0; j < arr.length; j++) {
+      if (i !== j) {
+        result[i] = result[i] * arr[j];
+      }
+    }
+  }
+  return result;
 }
+console.log(productNums([1, 2, 4, 6])); //output [ 48, 24, 12, 8 ]
+console.log(productNums([-1, 0, 1, 2, 3])); //output [ 0, -6, -0, -0, -0 ]
+
+//1/21/2025 call back function
+// arr.filter((num) => num % 2 === 0);
+
+const filter = (array, calllBackFn) => {
+  const newArr = [];
+  for (const num of array) {
+    if (calllBackFn(num)) {
+      newArr.push(num);
+    }
+  }
+  return newArr;
+};
+
+console.log(filter([1, 2, 3], (num) => num % 2 === 0)); //output 2
+console.log(filter([1, 2, 3], (num) => num % 2 === 1)); //ouput 1, 3
+
+const find = (array, calllBackFn) => {
+  for (const num of array) {
+    if (calllBackFn(num)) {
+      return true;
+    }
+  }
+  return false;
+};
+
+console.log(find([1, 2, 3], (num) => num === 6)); //false
+
+// use recur function for flatten array
+
+//1/23/2025
+const map = (array, callback) => {
+  // write your code here
+  const newArr = [];
+  for (const num of array) {
+    if (callback(num)) {
+      //unnecessary
+      newArr.push(callback(num));
+    }
+  }
+  return newArr;
+};
+
+console.log(
+  map([1, 2, 3], (num) => {
+    return num * num;
+  })
+); // returns [1, 4, 9]
+
+const map1 = (array, callback) => {
+  newArr = [];
+  for (const element of array) {
+    newArr.push(callback(element));
+  }
+  return newArr;
+};
+
+console.log(
+  map1(
+    [
+      { firstName: "phil", lastName: "lee" },
+      { firstName: "marco", lastName: "seo" },
+    ],
+    (obj) => {
+      return obj.firstName + " " + obj.lastName;
+    }
+  )
+); // returns ['phil lee', 'marco seo']
+
+//1/25/2025
+// 1.  Create getSum function which takes 2 arguments.  1st arg is an array of numbers and second is the sum target
+// getSum([1,2,3], 4) // returns [1,3] since 1 + 3 equals 4
+
+function getSum(arr, target) {
+  const twoNum = [];
+  for (let i = 0; i < arr.length; i++)
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === target) {
+        twoNum.push([arr[i], arr[j]]);
+      }
+    }
+  return twoNum;
+}
+console.log(getSum([1, 2, 3], 4)); //returns [1,3]
+console.log(getSum([1, 2, 3, 4, 5, 6], 6));
+
+function getAllSum(arr, target) {
+  const allNum = [];
+  for (let i = 0; i < arr.length; i++)
+    for (let j = 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === target) {
+        allNum.push([arr[i], arr[j]]);
+      }
+    }
+  return allNum;
+}
+console.log(getAllSum([1, 2, 3, 4, 5, 6], 6)); //output [ [ 1, 5 ], [ 2, 4 ] ]
+
+// const num = 0;
+// if (num) {
+//   console.log("Truthy");
+// }
+
+// const money = 0;
+// if(money===undefined || money === null) {
+//   console.log('No money')
+//    } else  {
+//   show balance
+// }
+
+const getColor = (color) => {
+  switch (color) {
+    case "red":
+      return "Red";
+    case "blue":
+      return "Blue";
+    case "green":
+      return "Green";
+    case "brown":
+      return "Brown";
+    default:
+      return "unknown color";
+  }
+};
+console.log(getColor("red", "blue", "green", "brown")); //output Red only
+
+const testArray = [1, 2, 4, 5, 6, 7, 8, 9, 5, 0];
+testArray.push(5);
+testArray.pop();
+let greaterthanfive = testArray.filter((num) => num > 5);
+const hasNine = testArray.includes(9);
+testArray.forEach((num) => {
+  console.log(num);
+});
+
+//1/28/2025
+// write a function called getWords which takes two arguments, a sentence (string) and Number.
+
+// getWords("hello my name is phil", 3) return ["hello", "my", "name"] since the 2nd argument is 3, it just returns the first 3 words
+
+function getWords(str, number) {
+  //split the words
+  const wordsArray = str.split(" ");
+  // console.log(words);
+  const result = [];
+  // const interatorNum = Math.min(words.length, number);
+  // const interatorNum = wordsArray < number ? wordsArray : number; //2nd way to do it
+  // for (let i = 0; i <interatorNum; i++) //to solve undefined
+
+  //count the number of string in an array (number instead of number.length)
+  for (let i = 0; i < number; i++) {
+    result.push(wordsArray[i]);
+  }
+  return result;
+}
+console.log(getWords("hello my name is phil", 2)); //output return ["hello", "my"]
+//how to fix undefined
+
+// const getWords2 = (words, num) => {
+//   const wordsArray = words.split(" ");
+//   const result = [];
+//   const interatorNum = Math.min(wordsArray.length, num);
+//   // const interatorNum = wordsArray < number ? wordsArray : number;
+//   for (let i = 0; i < interatorNum; i++) {
+//     result.push(wordsArray[i]);
+//   }
+// };
+// console.log(getWords2("Hello my name is Phil", 44)); // output undefined
+
+function getHighNum(num1, num2) {
+  return Math.max(num1, num2);
+}
+console.log(getHighNum(1, 3)); //output 3
+
+function getLowNum(num1, num2) {
+  return Math.min(num1, num2);
+}
+console.log(getLowNum(1, 3)); //output 1
+
+function getHighestNumber(arr) {
+  let highestnum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    //for (const num of array)
+    highestnum = Math.max(highestnum, arr[i]);
+
+    // if (arr[i] > highestnum) {
+    //   highestnum = arr[i];
+    // }
+  }
+  return highestnum;
+}
+console.log(getHighestNumber([1, 3, 7, 2, 1])); //output 7
+//return Math.max(...arr) spread operator
+
+const getWord = (str, num) => {
+  const splittedWord = str.split(" ");
+  return splittedWord[num - 1];
+};
+console.log(getWord("hello my name is phil", 2)); //output "my"
+
+// const getTime = (time, timeZone) => {
+//   const timeDifference = { EST: -5, CST: -6, MST: -7, PST: -8 };
+//   console.log(timeDifference["EST"]);
+//   //pass on the time and subtract from the timeZone
+// };
+// getTime(12, "EST"); // 7 O'clock
+// getTime(20, "PST"); // 12 O'clock
+// EST: -5
+// CST: -6
+// MST: -7
+// PST: -8
+
+// function getTime(time, zone) {
+//   switch (zone) {
+//     case "EST":
+//       return getTime(time, -5);
+//     case "CST":
+//       return getTime(time, -6);
+//     case "MST":
+//       return getTime(time, -7);
+//     case "PST":
+//       return getTime(time, -8);
+//     default:
+//       return "Invalid time";
+//   }
+// }
+
+const getTime = (time, zone) => {
+  const timezone = { EST: -5, CST: -6, MST: -7, PST: -8 };
+  const hasTimeError = time < 1 || time > 24;
+  const timezoneOffset = timezone[zone];
+
+  if (hasTimeError || !timezoneOffset) {
+    return hasTimeError ? "Time is invalid" : "Timezone is invalid";
+  }
+
+  const convertTime = (time, zone) => {
+    const convertedTime = time + zone;
+    if (convertedTime <= 0) {
+      return 24 + convertedTime;
+    }
+    return convertedTime;
+  };
+
+  return convertTime(time, timezoneOffset);
+};
+
+console.log(getTime(12, "EST")); // 7 O'clock
+// getTime(20, "PST"); // 12 O'clock
+
+//2/6/2025
+//Create a function called findMissingNumber.
+//Array will always be sorted, going from smallest to largest and there will
+// always be 1 missing number
+
+const findMissingNumber = (array) => {
+  for (let i = 0; i < array.length; i++) {
+    const nextNumber = array[i - 1] + 1;
+    if (i !== 0 && nextNumber !== array[i]) {
+      return nextNumber;
+    }
+  }
+};
+console.log(findMissingNumber([1, 2, 4, 5, 6])); // returns 3
+console.log(findMissingNumber([4, 5, 6, 8, 9, 10])); // returns 7
+
+// findMultipleMissingNumbers([1,2,4,5,6,8]) returns [3,7]
+// will only have 1 missing number in between numbers
+// numbers will be sorted still
+const findMultipleMissingNumbers = (array) => {
+  const result = [];
+  for (let i = 0; i < array.length; i++) {
+    const nextNumber = array[i - 1] + 1;
+    if (i !== 0 && nextNumber !== array[i]) {
+      result.push(nextNumber);
+    }
+  }
+  return result;
+};
+console.log(findMultipleMissingNumbers([1, 2, 4, 5, 6, 8])); // returns [3,7]
+
+const cars = [
+  {
+    model: "civic",
+    year: 2005,
+    seats: 4,
+    owners: ["phil", "marco", "dj"],
+    cdPlayer: true,
+    spareTire: null,
+    miles: 200000,
+  },
+  {
+    model: "accord",
+    year: 2007,
+    seats: 4,
+    owners: ["phil"],
+    cdPlayer: true,
+    spareTire: null,
+    miles: 20000,
+  },
+  {
+    model: "ram",
+    year: 2024,
+    seats: 4,
+    owners: ["dj"],
+    cdPlayer: true,
+    spareTire: 2,
+    miles: 200,
+  },
+  {
+    model: "tesla",
+    year: 2022,
+    seats: 4,
+    owners: ["marco"],
+    cdPlayer: false,
+    spareTire: 1,
+    miles: 200,
+  },
+];
+
+//create a function that will return an array of car models that 'phil' has owned
+
+const phil = (cars) => {
+  const philCars = [];
+  for (let i = 0; i < cars.length; i++) {
+    if (cars[i].owners.includes("phil")) {
+      philCars.push(cars[i].model);
+    }
+  }
+  return philCars;
+};
+console.log(phil(cars)); // output ['civic', 'accord']
+
+const findMultipleMissings = (nums) => {
+  let nextNumber = nums[0];
+  let missingNumbers = [];
+  nums.forEach((a, i) => {
+    if (a == nextNumber) {
+      //   console.log(i, true);
+    } else {
+      missingNumbers.push(a);
+      nextNumber++;
+    }
+    nextNumber++;
+  });
+  console.log("missing lottery number " + missingNumbers);
+};
+findMultipleMissings([1, 2, 3, 6, 7, 9, 10]); //output 4,5,8
+
+const removeElement = (array, element) => {
+  const result = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] !== element) {
+      result.push(array[i]);
+    }
+  }
+  return result;
+};
+console.log(removeElement([1, 2, 3, 4, 3, 5], 3)); //output [1, 2, 4, 5]
+
+const removeMultipleElements = (array, elements) => {
+  let result = [];
+  for (let i = 0; i < array.length; i++) {
+    if (!elements.includes(array[i])) {
+      result.push(array[i]);
+    }
+  }
+  return result;
+};
+console.log(removeMultipleElements([1, 2, 3, 4, 3, 5], [2, 3])); //output [1, 4, 5]
+
+//2/12/2025
+
+//easy;
+//-  Write a function isMultipleOf(a, b) that checks if a is a multiple of b.
+// isMultipleOf(15, 5); // Output: true
+const isMultipleOf2 = (a, b) => {
+  return a % b === 0;
+};
+console.log(isMultipleOf2(15, 5)); //output true
+
+const isMultipleOf3 = (a, b) => {
+  if (a % b === 0) {
+    return true;
+  }
+  return false;
+};
+console.log(isMultipleOf3(15, 4)); //output false
+
+// - Write a function average(arr) that calculates the average of numbers in an array.
+// average([10, 20, 30]); // Output: 20
+const average2 = (arr) => {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+  return sum / arr.length;
+};
+console.log(average2([10, 20, 30])); //output 20
+
+// - Write a function reverseArray(arr) that reverses the elements in an array.
+// reverseArray([1, 2, 3]); // Output: [3, 2, 1]
+const reverseArray3 = (arr) => {
+  let result = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+    result.push(arr[i]);
+  }
+  return result;
+};
+console.log(reverseArray3([1, 2, 3])); //output [3, 2, 1]
+
+// - Write a function areAllPositive that returns true if all numbers in the array are positive, and false otherwise.
+// areAllPositive([1, 2, 3, 4]); // Output: true
+// areAllPositive([1, -2, 3, 4]); // Output: false
+
+const areAllPositive1 = (arr) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] <= 0) {
+      return false;
+    }
+  }
+  return true;
+};
+console.log(areAllPositive1([1, 2, 3, 4])); //output
+console.log(areAllPositive1([1, -2, 3, 4])); //output
